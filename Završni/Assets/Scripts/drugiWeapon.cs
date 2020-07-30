@@ -10,7 +10,7 @@ public class drugiWeapon : MonoBehaviour
     private Vector3 target;
     public float bulletSpeed = 60.0f;
     public LayerMask whatToHit;
-    public float Damage = 10;
+    public int Damage = 10;
     // Start is called before the first frame update
     void Start()
     {
@@ -20,6 +20,7 @@ public class drugiWeapon : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        
         target = transform.GetComponent<Camera>().ScreenToWorldPoint(Input.mousePosition + Vector3.forward * 10);
         meta.transform.position = new Vector2(target.x,target.y);
         Vector3 difference = target - player.transform.position;
@@ -36,16 +37,19 @@ public class drugiWeapon : MonoBehaviour
     }
     void fireBullet(Vector2 direction, float rotationZ)
     {
-        GameObject b = Instantiate(metak) as GameObject;
-        b.transform.position = player.transform.position;
-        b.transform.rotation = Quaternion.Euler(0.0f, 0.0f, rotationZ);
-        b.GetComponent<Rigidbody2D>().velocity = direction * bulletSpeed;
+        GameObject pucanj = Instantiate(metak) as GameObject;
+        pucanj.transform.position = player.transform.position;
+        pucanj.transform.rotation = Quaternion.Euler(0.0f, 0.0f, rotationZ);
+        pucanj.GetComponent<Rigidbody2D>().velocity = direction * bulletSpeed;
         RaycastHit2D hit = Physics2D.Raycast(target, Vector2.zero, whatToHit);
-        if (hit.collider != null)
+       
+        Enemy enemy = hit.collider.GetComponent<Enemy>();
+        if(enemy != null)
         {
-            {
-                Debug.Log("We hit " + hit.collider.name + " and did " + Damage + " damage. ");
-            }
+            enemy.DamageEnemy(Damage);
+            Debug.Log("We hit " + hit.collider.name + " and did " + Damage + " damage. ");
         }
+        
+        Destroy(pucanj, 1);
     }
 }

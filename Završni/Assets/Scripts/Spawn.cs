@@ -6,6 +6,7 @@ public class Spawn : MonoBehaviour
 {
     public GameObject enemy;
     public GameObject [] helpItems;
+    private int random;
     public Vector2 whereToSpawn;
     public Vector2 whereToSpawn2;
     public Vector2 whereToSpawn3;
@@ -20,21 +21,15 @@ public class Spawn : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        for (int i = 0; i < 3; i++)
-        {
-            if (helpItems[i] == null)
-            {
-                helpItems[i] = GameObject.FindWithTag("Help");
-            }
-        }
-        
+
+        random = Random.Range(0, 2);
         Vector2 whereToSpawn3 = new Vector2(Random.Range(50f, -24f), Random.Range(50f, -24f));
         if (Time.time > nextSpawn)
         {
             nextSpawn = Time.time + spawnRate;
             Instantiate(enemy, whereToSpawn, Quaternion.identity);
             Instantiate(enemy, whereToSpawn2, Quaternion.identity);
-            Instantiate(helpItems[0], whereToSpawn3, Quaternion.identity);
+            Instantiate(helpItems[random], whereToSpawn3, Quaternion.identity);
         }
     }
 }

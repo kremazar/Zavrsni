@@ -10,7 +10,7 @@ public class Bullet : MonoBehaviour
     {
         Debug.Log(collision.name);
         target = GameObject.FindWithTag("Player");
-        if (collision.gameObject.tag != target.tag)
+        if (collision.gameObject.tag != target.tag && collision.gameObject.tag != "Help")
         {
             Enemy enemy = collision.GetComponent<Enemy>();
             if (enemy != null)

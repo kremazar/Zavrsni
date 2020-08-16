@@ -27,4 +27,5 @@ public class Status : MonoBehaviour
         health.localScale = new Vector3(_value, health.localScale.y, health.localScale.z);
         healthText.text = _cur + "/" + _max + "HP";
     }
+   
 }

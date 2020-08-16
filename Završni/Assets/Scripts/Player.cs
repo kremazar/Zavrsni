@@ -37,6 +37,10 @@ public class Player : MonoBehaviour
             statusIndicator.SetHealth(stats.curHealth, stats.maxHealth);
         }
     }
+    void Update()
+    {
+        statusIndicator.SetHealth(stats.curHealth, stats.maxHealth);
+    }
     
     public void DamagePlayer (int damage)
     {
@@ -54,7 +58,7 @@ public class Player : MonoBehaviour
         {
             if (collision.gameObject.name == "health(Clone)")
             {
-                stats.curHealth =  stats.maxHealth;
+                stats.curHealth = stats.maxHealth;
                 Debug.Log(stats.curHealth);
                 Destroy(collision.gameObject);
             }

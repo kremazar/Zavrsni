@@ -92,5 +92,10 @@ public class Enemy : MonoBehaviour
             //DamageEnemy(1000);
             
         }
+        if (collision.gameObject.tag== "Help")
+        {
+            Destroy(collision.gameObject);
+        }
+        
     }
 }

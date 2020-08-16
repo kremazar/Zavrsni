@@ -9,13 +9,31 @@ public class Enemy : MonoBehaviour
     public float moveSpeed = 5f;
     private Rigidbody2D rb;
     private Vector2 movement;
-    
+    GameObject search;
+
+    [Header("Optional: ")]
+    [SerializeField]
+    private Status statusIndicator;
     void Start()
     {
         rb = this.GetComponent<Rigidbody2D>();
+        stats.Init();
+        if (statusIndicator != null)
+        {
+            statusIndicator.SetHealth(stats.curHealth, stats.maxHealth);
+        }
     }
     void Update()
     {
+        
+          if (player == null)
+        {
+           search = GameObject.FindGameObjectWithTag("Player");
+           if (search != null)
+            {
+                player = search.transform;
+            }
+        }
         Vector3 direction = player.position - transform.position;
         float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
         rb.rotation = angle;
@@ -33,17 +51,46 @@ public class Enemy : MonoBehaviour
     [System.Serializable]
     public class EnemyStats
     {
-        public int Health = 100;
+        public int maxHealth = 100;
+
+        private int _curHealth;
+        public int curHealth
+        {
+            get { return _curHealth; }
+            set { _curHealth = Mathf.Clamp(value, 0, maxHealth); }
+        }
+        public int damage = 20;
+        public void Init()
+        {
+            curHealth = maxHealth;
+        }
     }
     public EnemyStats stats = new EnemyStats();
 
+   
 
     public void DamageEnemy(int damage)
     {
-        stats.Health -= damage;
-        if (stats.Health <= 0)
+        stats.curHealth -= damage;
+        if (stats.curHealth <= 0)
         {
             GameMaster.KillEnemy(this);
+        }
+        if (statusIndicator != null)
+        {
+            statusIndicator.SetHealth(stats.curHealth, stats.maxHealth);
+        }
+    }
+    void OnCollisionEnter2D(Collision2D collision)
+    {
+        Player _player = collision.collider.GetComponent<Player>();
+        
+        
+        if (_player != null)
+        {
+            _player.DamagePlayer(stats.damage);
+            //DamageEnemy(1000);
+            
         }
     }
 }

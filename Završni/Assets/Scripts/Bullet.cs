@@ -4,20 +4,21 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
-    public GameObject hitEffect;
-    public int damage = 10;
+    public static int damage = 10;
+    GameObject target;
     void OnTriggerEnter2D(Collider2D collision)
     {
         Debug.Log(collision.name);
-        Enemy enemy = collision.GetComponent<Enemy>();
-        if (enemy != null)
+        target = GameObject.FindWithTag("Player");
+        if (collision.gameObject.tag != target.tag)
         {
-            enemy.DamageEnemy(damage);
+            Enemy enemy = collision.GetComponent<Enemy>();
+            if (enemy != null)
+            {
+                enemy.DamageEnemy(damage);
+            }
+            Destroy(gameObject);
         }
-        Destroy(gameObject);
-        //GameObject effect = Instantiate(hitEffect, transform.position, Quaternion.identity);
-        //Destroy(effect, 5f);
         
-        Destroy(gameObject);
     }
 }

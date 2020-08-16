@@ -20,9 +20,11 @@ namespace UnityStandardAssets._2D
         // Use this for initialization
         private void Start()
         {
+            
             m_LastTargetPosition = target.position;
             m_OffsetZ = (transform.position - target.position).z;
             transform.parent = null;
+
         }
 
 
@@ -30,7 +32,9 @@ namespace UnityStandardAssets._2D
         private void Update()
         {
             if (target == null)
-                return;// da kamera ne prati kad nema igraca
+            {
+                target = GameObject.FindWithTag("Player").transform;
+            }
 
             // only update lookahead pos if accelerating or changed direction
             float xMoveDelta = (target.position - m_LastTargetPosition).x;

@@ -13,12 +13,21 @@ public class Movement : MonoBehaviour
     Vector2 mousePos;
 
     // Update is called once per frame
+
     void Update()
     {
         movement.x = Input.GetAxisRaw("Horizontal");
         movement.y = Input.GetAxisRaw("Vertical");
-
         mousePos = cam.ScreenToWorldPoint(Input.mousePosition);
+   
+        
+    }
+    void Awake()
+    {
+        if (cam == null)
+        {
+            cam = FindObjectOfType<Camera>();
+        }
     }
     void FixedUpdate()
     {

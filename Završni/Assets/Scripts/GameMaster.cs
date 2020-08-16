@@ -5,20 +5,32 @@ using UnityEngine;
 public class GameMaster : MonoBehaviour
 {
     public static GameMaster gm;
+    public Transform playerPrefab;
+    public Transform spawnPoint;
+  
 
     void Start()
     {
         if (gm == null)
         {
-            gm =this;
+            gm = GameObject.FindGameObjectWithTag("GM").GetComponent<GameMaster>();
+            
         }
     }
-    public Transform playerPrefab;
-    public Transform spawnPoint;
-
+   void Update()
+    {
+        if(playerPrefab == null)
+        {
+            playerPrefab = GameObject.FindGameObjectWithTag("Player").transform;
+        }
+    }
+   
+   
     public void RespawnPlayer()
     {
         Instantiate(playerPrefab, spawnPoint.position, spawnPoint.rotation);
+        GameOver.lifes -= 1;
+      
     }
     public static void KillPlayer (Player player)
     {
@@ -28,5 +40,6 @@ public class GameMaster : MonoBehaviour
     public static void KillEnemy(Enemy enemy)
     {
         Destroy(enemy.gameObject);
+        Score.scoreValue += 10;
     }
 }

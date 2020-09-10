@@ -31,7 +31,7 @@ public class Movement : MonoBehaviour
     }
     void FixedUpdate()
     {
-        rb.MovePosition(rb.position + movement * moveSpeed * Time.fixedDeltaTime);
+        rb.MovePosition(rb.position + movement * moveSpeed * Time.fixedDeltaTime * 2);
 
         Vector2 lookDir = mousePos - rb.position;
 

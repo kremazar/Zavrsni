@@ -89,13 +89,17 @@ public class Enemy : MonoBehaviour
         if (_player != null)
         {
             _player.DamagePlayer(stats.damage);
-            //DamageEnemy(1000);
+            DamageEnemy(1000);
             
         }
         if (collision.gameObject.tag== "Help")
         {
             Destroy(collision.gameObject);
         }
-        
+        if (collision.gameObject.tag == "Wall")
+        {
+            Physics2D.IgnoreCollision(collision.gameObject.GetComponent<Collider2D>(), GetComponent<Collider2D>());
+        }
+
     }
 }

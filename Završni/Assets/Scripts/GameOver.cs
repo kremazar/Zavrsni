@@ -3,26 +3,41 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
-
+using System.IO;
 public class GameOver : MonoBehaviour
 {
     public static int lifes = 3;
-    Text score;
-    void Start()
+    Text life;
+    public Text score;
+     void Start()
     {
-        score = GetComponent<Text>();
+        life = GetComponent<Text>();
     }
 
 
     void Update()
     {
-        score.text = "Life: " + lifes;
+        life.text = "Life: " + lifes;
 
+      
         if (lifes == 0)
         {
-            SceneManager.LoadScene("Menu");
+            Save();
             lifes = 3;
             Score.scoreValue = 0;
+            SceneManager.LoadScene("Credits");
         }
     }
+    public void Save()
+    {
+        string path = Application.dataPath + "/score.txt";
+        if (!File.Exists(path))
+        {
+            File.WriteAllText(path, "");
+        }
+        string content = "Score :" + Score.scoreValue.ToString() + "\n";
+        File.AppendAllText(path, content);
+        Debug.Log(Application.dataPath);
+    }
+    
 }

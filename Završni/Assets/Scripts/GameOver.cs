@@ -8,7 +8,7 @@ public class GameOver : MonoBehaviour
 {
     public static int lifes = 3;
     Text life;
-    public Text score;
+    public Text bulletDmg;
      void Start()
     {
         life = GetComponent<Text>();
@@ -18,8 +18,9 @@ public class GameOver : MonoBehaviour
     void Update()
     {
         life.text = "Life: " + lifes;
+        bulletDmg.text = "Bullet damage: " + Bullet.damage;
 
-      
+
         if (lifes == 0)
         {
             Save();

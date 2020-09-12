@@ -58,6 +58,7 @@ public class GameMaster : MonoBehaviour
         Application.LoadLevel(Application.loadedLevel);
         Instantiate(playerPrefab, spawnPoint.position, spawnPoint.rotation);
         GameOver.lifes -= 1;
+        Bullet.damage = 10;
       
     }
     public static void KillPlayer (Player player)

@@ -122,7 +122,7 @@ PrefabInstance:
     - target: {fileID: 5010217894906388109, guid: fd6f4c861c5eb804491eda4b58adf950,
         type: 3}
       propertyPath: m_Name
-      value: life (2)
+      value: wall (2)
       objectReference: {fileID: 0}
     - target: {fileID: 5010217894906388109, guid: fd6f4c861c5eb804491eda4b58adf950,
         type: 3}
@@ -199,7 +199,8 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 5010217894906388111, guid: fd6f4c861c5eb804491eda4b58adf950, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: fd6f4c861c5eb804491eda4b58adf950, type: 3}
 --- !u!1 &67237561
 GameObject:
@@ -404,7 +405,7 @@ PrefabInstance:
     - target: {fileID: 5010217894906388109, guid: fd6f4c861c5eb804491eda4b58adf950,
         type: 3}
       propertyPath: m_Name
-      value: life
+      value: wall
       objectReference: {fileID: 0}
     - target: {fileID: 5010217894906388109, guid: fd6f4c861c5eb804491eda4b58adf950,
         type: 3}
@@ -481,7 +482,8 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 5010217894906388111, guid: fd6f4c861c5eb804491eda4b58adf950, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: fd6f4c861c5eb804491eda4b58adf950, type: 3}
 --- !u!4 &200441503 stripped
 Transform:
@@ -606,7 +608,7 @@ PrefabInstance:
     - target: {fileID: 5010217894906388109, guid: fd6f4c861c5eb804491eda4b58adf950,
         type: 3}
       propertyPath: m_Name
-      value: life (1)
+      value: wall (1)
       objectReference: {fileID: 0}
     - target: {fileID: 5010217894906388109, guid: fd6f4c861c5eb804491eda4b58adf950,
         type: 3}
@@ -683,7 +685,8 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 5010217894906388111, guid: fd6f4c861c5eb804491eda4b58adf950, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: fd6f4c861c5eb804491eda4b58adf950, type: 3}
 --- !u!1 &726218163
 GameObject:
@@ -1318,7 +1321,7 @@ PrefabInstance:
     - target: {fileID: 5010217894906388109, guid: fd6f4c861c5eb804491eda4b58adf950,
         type: 3}
       propertyPath: m_Name
-      value: life (3)
+      value: wall (3)
       objectReference: {fileID: 0}
     - target: {fileID: 5010217894906388109, guid: fd6f4c861c5eb804491eda4b58adf950,
         type: 3}
@@ -2658,5 +2661,6 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 7870657015570760894, guid: 34f39d3d7afb25a4aa557982579972e3, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 34f39d3d7afb25a4aa557982579972e3, type: 3}

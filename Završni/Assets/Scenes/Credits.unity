@@ -1113,8 +1113,8 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: "Credits:\n\nSveu\u010Dili\u0161te Juraj Dobrila, Pula\n\nFakultet informatike
-    u Puli\n\nMentor: Tihomir Orehova\u010Dki\n\nStudent: Kre\u0161imir Ma\u017Ear\n\nRazvoj
-    arenske plaformske 2D ra\u010Dunalne igre u Unity okru\u017Eenju"
+    u Puli\n\nMentor: izv. prof. dr. sc. Tihomir Orehova\u010Dki\n\nStudent: Kre\u0161imir
+    Ma\u017Ear\n\nRazvoj arenske plaformske 2D ra\u010Dunalne igre u Unity okru\u017Eenju"
 --- !u!222 &1921622022
 CanvasRenderer:
   m_ObjectHideFlags: 0

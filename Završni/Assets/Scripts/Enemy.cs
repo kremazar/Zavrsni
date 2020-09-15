@@ -11,7 +11,7 @@ public class Enemy : MonoBehaviour
     private Vector2 movement;
     GameObject search;
 
-    [Header("Optional: ")]
+    
     [SerializeField]
     private Status statusIndicator;
     void Start()

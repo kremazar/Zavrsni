@@ -13,7 +13,6 @@ public class Shoot : MonoBehaviour
 
 void Start()
     {
-        //audioData = (AudioSource)Resources.Load("ShootSound", typeof(AudioSource));
         audioData = GetComponent<AudioSource>();
     }
     void Update()
@@ -31,7 +30,5 @@ void Start()
         rb.AddForce(firePoint.up * bulletForce, ForceMode2D.Impulse);
         audioData.Play();
         Destroy(bullet, 1);
-       
-          
     }
 }
